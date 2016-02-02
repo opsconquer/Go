@@ -20,7 +20,7 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
     fmt.Println("key:", k)
     fmt.Println("val:", strings.Join(v, ""))
   }
-fmt.Fprintf(w, "Hello astaxie!") //这个写入到w的是输出到客户端的
+fmt.Fprintf(w, "Hello taoke!") //这个写入到w的是输出到客户端的
 }
 
 func main() {
@@ -31,5 +31,5 @@ func main() {
   }
 }
 在浏览器输入http://localhost:9090
-可以看到浏览器页面输出了Hello astaxie!
+可以看到浏览器页面输出了Hello taoke!
 可以换一个地址试试： http://localhost:9090/?url_long=111&url_long=222
