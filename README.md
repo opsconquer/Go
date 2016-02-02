@@ -29,6 +29,9 @@ if err != nil {
 log.Fatal("ListenAndServe: ", err)
 }
 }
+
 在浏览器输入http://localhost:9090
+
 可以看到浏览器页面输出了Hello astaxie!
+
 可以换一个地址试试： http://localhost:9090/?url_long=111&url_long=222
