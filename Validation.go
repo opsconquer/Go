@@ -113,9 +113,16 @@ err = t.ExecuteTemplate(out, "T", template.HTML("<script>alert('you have been pw
 输出
 Hello, <script>alert('you have been pwned')</script>!
 
+转义的例子
+import "html/template"
+...
+t, err := template.New("foo").Parse(`{{define "T"}}Hello, {{.}}!{{end}}`)
+err = t.ExecuteTemplate(out, "T", "<script>alert('you have been pwned')</script>")
+转义之后的输出：
+Hello, &lt;script&gt;alert(&#39;you have been pwned&#39;)&lt;/script&gt;!
 
 
-
+防止多次递交表单
 
 
 
