@@ -1,0 +1,61 @@
+database/sql  数据库驱动API方法
+
+注册
+sql.Register  实现数据库驱动的初始化(init)工作
+
+Driver
+driver.Driver Driver是一个数据库驱动的接口 Open方法返回一个数据库的Conn接口
+
+Conn
+driver.Conn Conn是一个数据库连接的接口定义，定义了一系列方法
+  Prepare执行sql语句的准备状态
+  Close函数关闭当前的连接
+  Begin函数返回一个代表事务处理的Tx
+
+Stmt  
+driver.Stmt  Stmt是一种准备好的状态，和Conn相关联
+  Close函数关闭当前的链接状态
+  NumInput函数返回当前预留参数的个数
+  Exec函数执行Prepare准备好的sql(update/insert)
+  Query函数执行Prepare准备好的sql(select)
+
+Tx
+driver.Tx  事务处理
+
+Execer
+driver.Execer  这是一个Conn可选择实现的接口
+  如果这个接口没有定义，那么在调用DB.Exec,就会首先调用Prepare返回Stmt，然后执行Stmt的Exec，然后关闭Stmt。
+
+Result  
+driver.Result  这个是执行Update/Insert等操作返回的结果接口定义
+  LastInsertId函数返回由数据库执行插入操作得到的自增ID号。
+  RowsAffected函数返回query操作影响的数据条目数。
+
+Rows
+driver.Rows Rows是执行查询返回的结果集接口定义
+Columns函数返回查询数据库表的字段信息，这个返回的slice和sql查询的字段一一对应，而不是返回整个
+表的所有字段。
+Close函数用来关闭Rows迭代器。
+Next函数用来返回下一条数据，把数据赋值给dest。dest里面的元素必须是driver.Value的值除了string，
+返回的数据里面所有的string都必须要转换成[]byte。如果最后没数据了，Next函数最后返回io.EOF。
+
+Value
+driver.Value  其实就是一个空接口，他可以容纳任何的数据
+
+ValueConverter
+driver.ValueConverter  普通的值转化成driver.Value的接口  接口的函数在很多地方会使用到
+  转化driver.value到数据库表相应的字段，例如int64的数据如何转化成数据库表uint16字段
+  把数据库查询结果转化成driver.Value值
+  在scan函数里面如何把driver.Value值转化成用户定义的值
+
+Valuer
+driver.Valuer Valuer接口定义了返回一个driver.Value的方式
+
+
+
+  
+  
+  
+  
+  
+
