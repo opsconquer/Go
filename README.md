@@ -12,3 +12,7 @@ https://github.com/HackeZ/learnGolang  learning code for 《Go并发编程实战
 https://github.com/Unknwon/go-fundamental-programming  
 
 https://github.com/brian-chen-2013/python-cocurrency/tree/master/app  python 并发
+
+https://github.com/Unknwon/go-rock-libraries-showcases  
+
+
