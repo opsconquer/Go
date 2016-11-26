@@ -18,3 +18,5 @@ https://github.com/Unknwon/go-rock-libraries-showcases
 https://gowalker.org/
 
 https://github.com/xsank/EasyProxy/blob/master/build.go   easyproxy
+
+http://studygolang.com/pkgdoc  go的库
