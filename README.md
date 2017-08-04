@@ -20,3 +20,5 @@ https://gowalker.org/
 https://github.com/xsank/EasyProxy/blob/master/build.go   easyproxy
 
 http://studygolang.com/pkgdoc  go的库
+
+https://github.com/silenceper/dcmp etcd的配置管理系统
